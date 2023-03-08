@@ -2,15 +2,34 @@
 
 <body style="display: flex; flex-direction: row;">
 
+<!-- Area of Editing -->
 <div style="display: flex; flex-direction: column">
-<label for="story">Use YAML to create a map:</label>
-<textarea id="map" rows="15" cols="50" style="width: 50vw; font-size: 20px">
+  <label for="story">Use YAML to create a map:</label>
+  <textarea id="map" rows="15" cols="50" style="width: 50vw; font-size: 20px">
 width: 50vw
 height: 80vh
-</textarea>
-<input type="button" value="Refresh" onclick="refreshMap()">
+  </textarea>
+  <input type="button" value="Refresh" onclick="refreshMap()">
+  <div style="display: flex; flex-direction: row">
+    <fieldset>
+      <legend>Use which renderer?</legend>
+      <div>
+        <input type="radio" value="True" id="openlayers" name="q25" />
+        <label for="q25_radio1">openlayers</label>
+      </div>
+      <div>
+        <input type="radio" value="False" id="maplibre" name="q25" />
+        <label for="q25_radio2">maplibre</label>
+      </div>
+      <div>
+        <input type="radio" value="huh?" id="leaflet" name="q25" checked />
+        <label for="q25_radio3">leaflet</label>
+      </div>
+    </fieldset>
+  </div>
 </div>
 
+<!-- Area of Rendered Map -->
 <div class="map"></div>
 <script 
   type="module" 
