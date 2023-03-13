@@ -3,66 +3,80 @@
 <body style="display: flex; flex-direction: row;">
 
 <!-- Area of Editing -->
-<div style="display: flex; flex-direction: column">
+<div style="display: flex; flex-direction: column; max-width: 50vw">
   <label for="story">Use YAML to create a map:</label>
   <textarea id="map-text" rows="15" cols="50" style="width: 50vw; height: 300px; font-size: 20px">
 width: 50vw
 height: 80vh
   </textarea>
   <input type="button" value="Refresh" onclick="refreshMap()">
-  <div style="display: grid; grid-auto-flow: column dense;;"> 
-    <div id="use" style="display: flex; flex-direction: row">
-      <fieldset>
-        <legend>Use which renderer?</legend>
-        <div class="field" data-value="openlayers">
-          <input type="radio" name="use" checked/>
-          <label>openlayers</label>
-        </div>
-        <div class="field" data-value="maplibre">
-          <input type="radio" name="use"/>
-          <label>maplibre</label>
-        </div>
-        <div class="field" data-value="leaflet">
-          <input type="radio" name="use"/>
-          <label>leaflet</label>
-        </div>
-      </fieldset>
-    </div>
-    <div id="XYZ" style="display: flex; flex-direction: row">
-      <fieldset>
-        <legend>Template of Tile Service</legend>
-        <div class="field" data-value="http://b.tile.openstreetmap.org/{z}/{x}/{y}.png">
-          <input type="radio" name="XYZ" checked/>
-          <label>OSM Mapnik</label>
-        </div>
-        <div class="field" data-value="https://a.tile.thunderforest.com/cycle/{z}/{x}/{y}.png?apikey=a5dd6a2f1c934394bce6b0fb077203eb">
-          <input type="radio" name="XYZ"/>
-          <label>OpenCycleMap</label>
-        </div>
-        <div class="field" data-value="https://tile.happyman.idv.tw/map/moi_osm/{z}/{x}/{y}.png">
-          <input type="radio" name="XYZ"/>
-          <label>Rudymap</label>
-        </div>
-        <div class="field" data-value="">
-          <input type="radio" name="XYZ" />
-          <label>Custom</label>
-          <input type="text" style="width: 300px">
-        </div>
-      </fieldset>
-    </div>
-    <div id="link" style="display: flex; flex-direction: row">
-      <fieldset>
-        <legend>Use permalink</legend>
-        <div class="field" data-type="boolean" data-value=false>
-          <input type="radio" name="link" checked/>
-          <label>False</label>
-        </div>
-        <div class="field" data-type="boolean" data-value=true>
-          <input type="radio" name="link"/>
-          <label>True</label>
-        </div>
-      </fieldset>
-    </div>
+  <div style="width: 50vw; display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));"> 
+    <fieldset style="width=fit-content">
+      <legend>Use which renderer?</legend>
+      <div class="field" data-value="openlayers">
+        <input type="radio" name="use" checked/>
+        <label>openlayers</label>
+      </div>
+      <div class="field" data-value="maplibre">
+        <input type="radio" name="use"/>
+        <label>maplibre</label>
+      </div>
+      <div class="field" data-value="leaflet">
+        <input type="radio" name="use"/>
+        <label>leaflet</label>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Template of Tile Service</legend>
+      <div class="field" data-value="http://b.tile.openstreetmap.org/{z}/{x}/{y}.png">
+        <input type="radio" name="XYZ" checked/>
+        <label>OSM Mapnik</label>
+      </div>
+      <div class="field" data-value="https://a.tile.thunderforest.com/cycle/{z}/{x}/{y}.png?apikey=a5dd6a2f1c934394bce6b0fb077203eb">
+        <input type="radio" name="XYZ"/>
+        <label>OpenCycleMap</label>
+      </div>
+      <div class="field" data-value="https://tile.happyman.idv.tw/map/moi_osm/{z}/{x}/{y}.png">
+        <input type="radio" name="XYZ"/>
+        <label>Rudymap</label>
+      </div>
+      <div class="field" data-value="">
+        <input type="radio" name="XYZ" />
+        <label>Custom</label>
+        <input type="text">
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Use permalink</legend>
+      <div class="field" data-type="boolean" data-value=false>
+        <input type="radio" name="link" checked/>
+        <label>False</label>
+      </div>
+      <div class="field" data-type="boolean" data-value=true>
+        <input type="radio" name="link"/>
+        <label>True</label>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Mapbox Style</legend>
+      <div class="field" data-value="https://demotiles.maplibre.org/style.json">
+        <input type="radio" name="mapbox.style" checked/>
+        <label>Maplibre demotiles</label>
+      </div>
+      <div class="field" data-value="mapbox://styles/mapbox/bright-v9">
+        <input type="radio" name="mapbox.style"/>
+        <label>Mapbox bright-v9</label>
+      </div>
+      <div class="field" data-value="https://api.maptiler.com/maps/topo-v2/style.json?key=KHspARDib3W1sNPt69qH">
+        <input type="radio" name="mapbox.style"/>
+        <label>Maptiler topo-v2</label>
+      </div>
+      <div class="field" data-value="">
+        <input type="radio" name="mapbox.style" />
+        <label>Custom</label>
+        <input type="text">
+      </div>
+    </fieldset>
   </div>
 </div>
 <script type="module" src="input.js"></script>

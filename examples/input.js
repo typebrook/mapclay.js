@@ -7,8 +7,8 @@ choices.forEach((choice) => {
   choice.addEventListener('click', (event) => {
       choice.querySelector('input[type="radio"]').checked = true
 
-      const field = choice.querySelector('input').name
       const options = jsyaml.load(textArea.value, 'utf8');
+      const field = choice.querySelector('input').name
       var value = choice.dataset.value
 
       if (! value) {
